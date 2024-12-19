@@ -110,7 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="GMT-uy-OMa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="평생운세" image="square.and.arrow.up.circle.fill" catalog="system" id="4JL-vO-moJ"/>
+                    <tabBarItem key="tabBarItem" title="평생운세" image="icon-whole" id="4JL-vO-moJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6e-eB-s1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,6 +166,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ZN4-y0-V0h"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qZ9-fc-bji">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -181,8 +182,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-whole" width="25" height="25"/>
         <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
-        <image name="square.and.arrow.up.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
