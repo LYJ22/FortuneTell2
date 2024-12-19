@@ -134,9 +134,6 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d05-2m-MtO">
                                 <rect key="frame" x="83" y="502" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="E8u-UX-gi1" kind="embed" id="kpn-31-ydE"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GMT-uy-OMa"/>
@@ -146,9 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6e-eB-s1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="5657.2519083969464" y="343.66197183098592"/>
-
         </scene>
         <!--신년운세-->
         <scene sceneID="FAz-Hv-Z8c">
@@ -192,12 +187,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Noto Serif KR" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vQG-tR-BJV">
-                                <rect key="frame" x="33" y="124" width="110" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mjz-YB-goT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -217,7 +206,6 @@
         <!--Navigation Controller-->
         <scene sceneID="7PO-Ox-OdA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y8R-dp-SI7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="mainViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Pib-Di-r2E" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7zZ-XN-9Z1">
@@ -228,6 +216,7 @@
                         <segue destination="0gQ-o5-4Pw" kind="relationship" relationship="rootViewController" id="Lo9-m4-Xfz"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y8R-dp-SI7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="933.58778625954199" y="-35.211267605633807"/>
         </scene>
@@ -301,7 +290,6 @@
             </objects>
             <point key="canvasLocation" x="2812.9770992366412" y="-34.507042253521128"/>
         </scene>
-
         <!--Navigation Controller-->
         <scene sceneID="s3N-xU-vsw">
             <objects>
@@ -340,7 +328,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5k-5u-i9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="799" y="1204"/>
-
         </scene>
     </scenes>
     <resources>
