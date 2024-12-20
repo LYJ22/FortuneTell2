@@ -8,16 +8,12 @@
 import UIKit
 
 class TodayViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 탭바 아이템의 이미지 색상 변경 방지
-        if let tabBarItems = tabBarController?.tabBar.items {
-            for item in tabBarItems {
-                item.image = item.image?.withRenderingMode(.alwaysOriginal)
-            }
-        }
     }
     
 
