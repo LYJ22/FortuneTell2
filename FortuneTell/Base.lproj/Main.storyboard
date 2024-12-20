@@ -298,12 +298,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="오늘의 운세" image="icon-today" id="yk4-2P-GEE"/>
                     <connections>
-
                         <outlet property="backImage" destination="dy3-vh-yQf" id="47a-87-8A0"/>
                         <outlet property="labelContent" destination="Jht-f6-JwQ" id="CUn-fA-FTN"/>
                         <outlet property="labelSubTitle" destination="zLF-xX-goK" id="rTk-Ml-7Jy"/>
                         <outlet property="labelTitle" destination="HGT-FN-tGy" id="CQm-qJ-yA2"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ma-bR-o1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -611,10 +609,8 @@
                         <outlet property="labelContent" destination="TjJ-CD-g6D" id="P8m-Oh-wNs"/>
                         <outlet property="labelTitle" destination="ott-Rc-mrS" id="Hjd-pG-S8J"/>
                         <outlet property="pickerView" destination="Dxx-4o-GDi" id="ZZo-bt-at2"/>
-                        <segue destination="mYK-dG-Cbw" kind="show" id="JNl-St-a1h"/>
-
                         <outlet property="yearTitle" destination="yxj-c9-cAb" id="ds4-Sa-YOP"/>
-
+                        <segue destination="mYK-dG-Cbw" kind="show" id="JNl-St-a1h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aa-LZ-luH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

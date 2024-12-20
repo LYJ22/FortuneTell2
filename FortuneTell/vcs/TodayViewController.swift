@@ -13,6 +13,7 @@ import UIKit
 
 class TodayViewController: UIViewController {
 
+
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var labelSubTitle: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
@@ -36,6 +37,7 @@ class TodayViewController: UIViewController {
         
         labelContent.fadeIn()
         }
+
 
 
     override func viewDidLoad() {
