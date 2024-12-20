@@ -243,7 +243,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d05-2m-MtO">
                                 <rect key="frame" x="83" y="502" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -261,16 +260,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GMT-uy-OMa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kNb-61-W1e" firstAttribute="trailing" secondItem="GMT-uy-OMa" secondAttribute="trailing" id="89n-0v-XKk"/>
-                            <constraint firstItem="kNb-61-W1e" firstAttribute="bottom" secondItem="GMT-uy-OMa" secondAttribute="bottom" id="JZp-Bh-rtr"/>
-                            <constraint firstItem="kNb-61-W1e" firstAttribute="top" secondItem="GMT-uy-OMa" secondAttribute="top" id="ZHZ-cb-IV5"/>
-                            <constraint firstItem="kNb-61-W1e" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" id="uvj-SZ-5ru"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="평생운세" image="icon-whole" id="4JL-vO-moJ"/>
                 </viewController>
@@ -320,6 +312,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ve-UR-t0H">
+                                <rect key="frame" x="76" y="436" width="240" height="289"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjJ-CD-g6D">
+                                        <rect key="frame" x="3" y="0.0" width="234" height="289"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">회원님의 초년운세 흐름은 21세까지 적용이 됩니다. 어려서부터 인기가 많은 사주입니다. 여성에게는 깍쟁이 같다는 소리를 자주 듣겠지만 남성들에게는 꽤나 어필하는 스타일이지요. 10대 중반에 성격이 완성 되는데 이 때 함께한 친구가 평생의 지기가 될 것입니다.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mjz-YB-goT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -327,7 +334,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="신년운세" image="icon-year" id="3WG-oF-EiF"/>
                     <connections>
+                        <outlet property="contentView" destination="9Ve-UR-t0H" id="hvg-74-K88"/>
                         <outlet property="imageView" destination="PeR-il-ahP" id="tEi-5Z-THn"/>
+                        <outlet property="labelContent" destination="TjJ-CD-g6D" id="P8m-Oh-wNs"/>
                         <outlet property="labelTitle" destination="ott-Rc-mrS" id="Hjd-pG-S8J"/>
                         <outlet property="pickerView" destination="Dxx-4o-GDi" id="ZZo-bt-at2"/>
                         <outlet property="yearTitle" destination="yxj-c9-cAb" id="ds4-Sa-YOP"/>
@@ -490,7 +499,6 @@
         <image name="icon-whole" width="25" height="25"/>
         <image name="icon-year" width="25" height="25"/>
         <image name="title" width="349" height="71"/>
-
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,7 +7,21 @@
 
 import UIKit
 
+extension UIView {
+    func fadeIn(duration: TimeInterval = 1.5, delay: TimeInterval = 1.0, completion: ((Bool) -> Void)? = nil) {
+        self.alpha = 0.0
+        self.isHidden = false
+        UIView.animate(withDuration: duration, delay: delay, options: .transitionFlipFromRight, animations: {
+            self.alpha = 1.0
+        }, completion: completion)
+    }
+
+}
+
+
 class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var labelContent: UILabel!
     @IBOutlet weak var yearTitle: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
@@ -45,10 +59,14 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         pickerView.delegate = self
         pickerView.dataSource = self
         self.imageView.image = UIImage(imageLiteralResourceName: "roll")
+        //labelContent.isHidden = true
+        contentView.isHidden = true
         
         yearTitle.font = UIFont(name: "NotoSerifKR-SemiBold", size: 28)
         
         labelTitle.font = UIFont(name: "NotoSerifKR-Medium", size: 22)
+        
+        labelContent.font = UIFont(name: "NotoSerifKR-Light", size: 17)
         
 //        for family in UIFont.familyNames {
 //            print("Font family: \(family)")
@@ -71,7 +89,8 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let selectedMonth = month[selectedRow]
             labelTitle.text = "ㅁㅁ 님의 \(selectedMonth) 신년운세입니다."
         
-        
+        //labelContent.isHidden = true
+        contentView.isHidden = true
         self.imageView.image = UIImage(named: "roll")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 UIView.transition(with: self.imageView,
@@ -81,13 +100,10 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                                       self.imageView.image = UIImage(named: "back")
                                   }, completion: nil)
             }
-        
-//        UIView.transition(with: self.imageView,
-//                          duration: 2.0,
-//                          options: .transitionCrossDissolve,
-//                          animations: {
-//                            self.imageView.image = UIImage(imageLiteralResourceName: "back")
-//        }, completion: nil)
+        //labelContent.fadeIn()
+        contentView.fadeIn()
+
+
     }
     
 
