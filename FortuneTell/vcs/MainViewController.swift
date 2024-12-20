@@ -115,6 +115,13 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         secondChildVC.date = date
                         secondChildVC.time = selectedTime!
                     }
+                    else if let thirdChildVC = viewController as? LifeViewController {
+                        thirdChildVC.name = textViewName.text!
+                        thirdChildVC.gender = gender[segmentMW.selectedSegmentIndex]
+                        thirdChildVC.dateType = dateType[segmentDateType.selectedSegmentIndex]
+                        thirdChildVC.date = date
+                        thirdChildVC.time = selectedTime!
+                    }
                 }
             }
         }
