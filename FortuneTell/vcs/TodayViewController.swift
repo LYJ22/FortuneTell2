@@ -28,6 +28,7 @@ class TodayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
+        self.labelSubTitle.text = "\(name!)님의 오늘의 운세입니다."
             self.backImage.image = UIImage(named: "roll")
         labelContent.isHidden = true
         

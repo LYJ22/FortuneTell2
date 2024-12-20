@@ -57,6 +57,7 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             super.viewWillAppear(animated)
             self.imageView.image = UIImage(named: "roll")
             self.contentView.isHidden = true
+        self.labelTitle.text = "월별 신년운세"
         }
     
     
@@ -68,6 +69,7 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.imageView.image = UIImage(imageLiteralResourceName: "roll")
         //labelContent.isHidden = true
         contentView.isHidden = true
+        
         
         yearTitle.font = UIFont(name: "NotoSerifKR-SemiBold", size: 28)
         
@@ -110,7 +112,7 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         let selectedRow = pickerView.selectedRow(inComponent: 0)
             let selectedMonth = month[selectedRow]
-            labelTitle.text = "ㅁㅁ 님의 \(selectedMonth) 신년운세입니다."
+            labelTitle.text = "\(name!)님의 \(selectedMonth) 신년운세입니다."
         
         //labelContent.isHidden = true
         contentView.isHidden = true
