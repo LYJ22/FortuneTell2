@@ -8,11 +8,30 @@
 import UIKit
 
 class TodayViewController: UIViewController {
+    var name: String?
+    var gender: String?
+    var dateType: String?
+    var date: String?
+    var time: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        if let name = name {
+            print("넘어온 값 name: \(name)")
+        }
+        if let gender = gender {
+            print("넘어온 값 gender: \(gender)")
+        }
+        if let dateType = dateType {
+            print("넘어온 값 dateType: \(dateType)")
+        }
+        if let date = date {
+            print("넘어온 값 date: \(date)")
+        }
+        if let time = time {
+            print("넘어온 값 time: \(time)")
+        }
     }
     
 

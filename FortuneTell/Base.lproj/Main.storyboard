@@ -227,7 +227,7 @@
         <!--오늘의 운세-->
         <scene sceneID="X5J-oP-h10">
             <objects>
-                <viewController storyboardIdentifier="dayViewController" id="9N3-JQ-M7C" customClass="TodayViewController" customModule="FortuneTell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9N3-JQ-M7C" customClass="TodayViewController" customModule="FortuneTell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iJl-dY-tZN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,9 +244,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="오늘의 운세" image="icon-today" id="yk4-2P-GEE"/>
-                    <connections>
-                        <outlet property="text" destination="Zr9-8U-ldH" id="Pha-8f-ZYL"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ma-bR-o1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -550,10 +547,8 @@
                         <outlet property="labelContent" destination="TjJ-CD-g6D" id="P8m-Oh-wNs"/>
                         <outlet property="labelTitle" destination="ott-Rc-mrS" id="Hjd-pG-S8J"/>
                         <outlet property="pickerView" destination="Dxx-4o-GDi" id="ZZo-bt-at2"/>
-                        <segue destination="mYK-dG-Cbw" kind="show" id="JNl-St-a1h"/>
-
                         <outlet property="yearTitle" destination="yxj-c9-cAb" id="ds4-Sa-YOP"/>
-
+                        <segue destination="mYK-dG-Cbw" kind="show" id="JNl-St-a1h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aa-LZ-luH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

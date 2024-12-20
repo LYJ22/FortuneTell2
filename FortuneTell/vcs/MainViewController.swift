@@ -48,18 +48,26 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func buttonFortune(_ sender: UIButton) {
         
-        if let name = textViewName.text, !name.isEmpty {
-            let gen = gender[segmentMW.selectedSegmentIndex]
-            let dType = dateType[segmentDateType.selectedSegmentIndex]
-            
-            /* 운세 확인 페이지로 데이터 전달 (name, gen, dType, date, time)*/
-            
-        }else{
+        guard let name = textViewName.text, !name.isEmpty else{
             print("오류")
             let alert = UIAlertController(title: "입력 오류", message: "값을 입력해 주세요.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            return
         }
+        
+//        if let name = textViewName.text, !name.isEmpty {
+//            let gen = gender[segmentMW.selectedSegmentIndex]
+//            let dType = dateType[segmentDateType.selectedSegmentIndex]
+//            
+//            /* 운세 확인 페이지로 데이터 전달 (name, gen, dType, date, time)*/
+//            
+//        }else{
+//            print("오류")
+//            let alert = UIAlertController(title: "입력 오류", message: "값을 입력해 주세요.", preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
     }
     
     // date picker 날짜 선택
@@ -89,5 +97,23 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         print(selectedTime!)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let tabBarController = segue.destination as? UITabBarController {
+            if let viewControllers = tabBarController.viewControllers {
+                for viewController in viewControllers {
+                    if let firstChildVC = viewController as? TodayViewController {
+                        firstChildVC.name = textViewName.text!
+                        firstChildVC.gender = gender[segmentMW.selectedSegmentIndex]
+                        firstChildVC.dateType = dateType[segmentDateType.selectedSegmentIndex]
+                        firstChildVC.date = date
+                        firstChildVC.time = selectedTime!
+                    }
+//                    else if let secondChildVC = viewController as? LifeViewController {
+//                        secondChildVC.data = "두 번째 데이터"
+//                    }
+                }
+            }
+        }
+    }
 }
 
