@@ -71,6 +71,7 @@
                                     <color key="baseBackgroundColor" red="1" green="0.61960784310000006" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="buttonFortune:" destination="0gQ-o5-4Pw" eventType="touchUpInside" id="8CF-j3-E3T"/>
                                     <segue destination="YwJ-MC-4YZ" kind="show" id="dFK-xY-zSL"/>
                                 </connections>
                             </button>
@@ -160,6 +161,9 @@
                                     <constraint firstAttribute="width" constant="244" id="DuU-pu-rKi"/>
                                     <constraint firstAttribute="height" constant="100" id="Inc-OI-nhY"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="0gQ-o5-4Pw" id="5N4-4J-FGI"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p0J-kV-Fe7"/>
@@ -205,6 +209,13 @@
                             </constraints>
                         </view>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="NQl-5g-QKA" id="9JV-rq-Lsn"/>
+                        <outlet property="picker" destination="dbn-g7-Dhi" id="r4o-kz-n0n"/>
+                        <outlet property="segmentDateType" destination="WiI-o7-9us" id="lx1-3C-HJq"/>
+                        <outlet property="segmentMW" destination="WcH-a8-Gh2" id="IVB-ab-WtO"/>
+                        <outlet property="textViewName" destination="oSR-Z6-8CN" id="Pc8-DI-fYY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85Q-a0-nzc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -213,7 +224,7 @@
         <!--오늘의 운세-->
         <scene sceneID="X5J-oP-h10">
             <objects>
-                <viewController id="9N3-JQ-M7C" customClass="TodayViewController" customModule="FortuneTell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dayViewController" id="9N3-JQ-M7C" customClass="TodayViewController" customModule="FortuneTell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iJl-dY-tZN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -500,12 +511,27 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="신년운세" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-c9-cAb">
-                                <rect key="frame" x="16" y="102" width="97" height="34"/>
+                                <rect key="frame" x="16" y="102" width="143" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ve-UR-t0H">
+                                <rect key="frame" x="76" y="436" width="240" height="289"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjJ-CD-g6D">
+                                        <rect key="frame" x="3" y="0.0" width="234" height="289"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">회원님의 초년운세 흐름은 21세까지 적용이 됩니다. 어려서부터 인기가 많은 사주입니다. 여성에게는 깍쟁이 같다는 소리를 자주 듣겠지만 남성들에게는 꽤나 어필하는 스타일이지요. 10대 중반에 성격이 완성 되는데 이 때 함께한 친구가 평생의 지기가 될 것입니다.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mjz-YB-goT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -513,10 +539,15 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="신년운세" image="icon-year" id="3WG-oF-EiF"/>
                     <connections>
+                        <outlet property="contentView" destination="9Ve-UR-t0H" id="hvg-74-K88"/>
                         <outlet property="imageView" destination="PeR-il-ahP" id="tEi-5Z-THn"/>
+                        <outlet property="labelContent" destination="TjJ-CD-g6D" id="P8m-Oh-wNs"/>
                         <outlet property="labelTitle" destination="ott-Rc-mrS" id="Hjd-pG-S8J"/>
                         <outlet property="pickerView" destination="Dxx-4o-GDi" id="ZZo-bt-at2"/>
                         <segue destination="mYK-dG-Cbw" kind="show" id="JNl-St-a1h"/>
+
+                        <outlet property="yearTitle" destination="yxj-c9-cAb" id="ds4-Sa-YOP"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aa-LZ-luH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
