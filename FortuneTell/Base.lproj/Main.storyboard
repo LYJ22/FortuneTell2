@@ -72,7 +72,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="buttonFortune:" destination="0gQ-o5-4Pw" eventType="touchUpInside" id="8CF-j3-E3T"/>
-                                    <segue destination="YwJ-MC-4YZ" kind="show" id="dFK-xY-zSL"/>
+                                    <segue destination="YwJ-MC-4YZ" kind="show" id="hpJ-OV-PwQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2n-xN-iHl">
@@ -147,6 +147,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="l84-NG-s2X"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="datePick:" destination="0gQ-o5-4Pw" eventType="valueChanged" id="OVd-SV-9HI"/>
+                                        </connections>
                                     </datePicker>
                                 </subviews>
                                 <constraints>
@@ -241,6 +244,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="오늘의 운세" image="icon-today" id="yk4-2P-GEE"/>
+                    <connections>
+                        <outlet property="text" destination="Zr9-8U-ldH" id="Pha-8f-ZYL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ma-bR-o1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -427,7 +433,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="nSm-Vi-b8T">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="YwJ-MC-4YZ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="resultTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="YwJ-MC-4YZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ZN4-y0-V0h">
                         <nil key="title"/>

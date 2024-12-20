@@ -14,9 +14,10 @@ let time = ["모름", "23시 30분 ~ 1시 29분", "1시 30분 ~ 3시 29분", "3�
 let gender = ["남성", "여성"]
 let dateType = ["음력", "양력"]
 var selectedTime = time.first
+var date = ""
 
 class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     
     @IBOutlet weak var textViewName: UITextField!
     @IBOutlet weak var segmentMW: UISegmentedControl!
@@ -39,40 +40,38 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         picker.delegate = self
         picker.dataSource = self
         
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd"
+        date = dateformatter.string(from: Date())
     }
     
     
     @IBAction func buttonFortune(_ sender: UIButton) {
-        let gen = gender[segmentMW.selectedSegmentIndex]
-        let dType = dateType[segmentDateType.selectedSegmentIndex]
-        print(textViewName.text)
-        print(gen)
-        print(dType)
-        print(selectedTime!)
         
-        if let name = textViewName.text, !name.isEmpty, let tabBarController = self.tabBarController {
+        if let name = textViewName.text, !name.isEmpty {
+            let gen = gender[segmentMW.selectedSegmentIndex]
+            let dType = dateType[segmentDateType.selectedSegmentIndex]
             
-            if let dayVC = tabBarController.viewControllers?[0] as? TodayViewController{
-                
-            }
-            if let yearVC = tabBarController.viewControllers?[1] as? YearViewController{
-                
-            }
-            /*
-             
-                평생 운세
-             
-             */
+            /* 운세 확인 페이지로 데이터 전달 (name, gen, dType, date, time)*/
+            
         }else{
-            /*print("오류")
+            print("오류")
             let alert = UIAlertController(title: "입력 오류", message: "값을 입력해 주세요.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)*/
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
+    // date picker 날짜 선택
+    @IBAction func datePick(_ sender: UIDatePicker) {
+        let datePickerView = sender
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        date = formatter.string(from: datePickerView.date)
+    }
     
     
+    // picker 시간 선택
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
