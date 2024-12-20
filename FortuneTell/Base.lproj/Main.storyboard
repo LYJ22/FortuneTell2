@@ -243,6 +243,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d05-2m-MtO">
                                 <rect key="frame" x="83" y="502" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -260,9 +261,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GMT-uy-OMa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kNb-61-W1e" firstAttribute="trailing" secondItem="GMT-uy-OMa" secondAttribute="trailing" id="89n-0v-XKk"/>
+                            <constraint firstItem="kNb-61-W1e" firstAttribute="bottom" secondItem="GMT-uy-OMa" secondAttribute="bottom" id="JZp-Bh-rtr"/>
+                            <constraint firstItem="kNb-61-W1e" firstAttribute="top" secondItem="GMT-uy-OMa" secondAttribute="top" id="ZHZ-cb-IV5"/>
+                            <constraint firstItem="kNb-61-W1e" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" id="uvj-SZ-5ru"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="평생운세" image="icon-whole" id="4JL-vO-moJ"/>
                 </viewController>
@@ -306,9 +314,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="신년운세" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-c9-cAb">
-                                <rect key="frame" x="16" y="102" width="97" height="34"/>
+                                <rect key="frame" x="16" y="102" width="143" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -322,6 +330,7 @@
                         <outlet property="imageView" destination="PeR-il-ahP" id="tEi-5Z-THn"/>
                         <outlet property="labelTitle" destination="ott-Rc-mrS" id="Hjd-pG-S8J"/>
                         <outlet property="pickerView" destination="Dxx-4o-GDi" id="ZZo-bt-at2"/>
+                        <outlet property="yearTitle" destination="yxj-c9-cAb" id="ds4-Sa-YOP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aa-LZ-luH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -481,6 +490,7 @@
         <image name="icon-whole" width="25" height="25"/>
         <image name="icon-year" width="25" height="25"/>
         <image name="title" width="349" height="71"/>
+
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,10 +8,12 @@
 import UIKit
 
 class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var yearTitle: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var labelTitle: UILabel!
+    
     
     //월 선택
     let month: [String] = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
@@ -44,7 +46,16 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         pickerView.dataSource = self
         self.imageView.image = UIImage(imageLiteralResourceName: "roll")
         
+        yearTitle.font = UIFont(name: "NotoSerifKR-SemiBold", size: 28)
         
+        labelTitle.font = UIFont(name: "NotoSerifKR-Medium", size: 22)
+        
+//        for family in UIFont.familyNames {
+//            print("Font family: \(family)")
+//            for font in UIFont.fontNames(forFamilyName: family) {
+//                print("Font name: \(font)")
+//            }
+//        }
         if let tabBarItems = tabBarController?.tabBar.items {
             for item in tabBarItems {
                 item.image = item.image?.withRenderingMode(.alwaysOriginal)
