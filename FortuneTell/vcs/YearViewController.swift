@@ -20,6 +20,12 @@ extension UIView {
 
 
 class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    var name: String?
+    var gender: String?
+    var dateType: String?
+    var date: String?
+    var time: String?
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var labelContent: UILabel!
     @IBOutlet weak var yearTitle: UILabel!
@@ -79,6 +85,22 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             for item in tabBarItems {
                 item.image = item.image?.withRenderingMode(.alwaysOriginal)
             }
+        }
+        
+        if let name = name {
+            print("넘어온 값 name: \(name)")
+        }
+        if let gender = gender {
+            print("넘어온 값 gender: \(gender)")
+        }
+        if let dateType = dateType {
+            print("넘어온 값 dateType: \(dateType)")
+        }
+        if let date = date {
+            print("넘어온 값 date: \(date)")
+        }
+        if let time = time {
+            print("넘어온 값 time: \(time)")
         }
     }
     
