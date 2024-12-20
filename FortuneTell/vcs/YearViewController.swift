@@ -50,6 +50,7 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             self.imageView.image = UIImage(named: "roll")
+        self.contentView.isHidden = true
         }
     
     
