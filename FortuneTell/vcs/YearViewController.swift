@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    func fadeIn(duration: TimeInterval = 1.5, delay: TimeInterval = 1.0, completion: ((Bool) -> Void)? = nil) {
+    public func fadeIn(duration: TimeInterval = 1.5, delay: TimeInterval = 1.0, completion: ((Bool) -> Void)? = nil) {
         self.alpha = 0.0
         self.isHidden = false
         UIView.animate(withDuration: duration, delay: delay, options: .transitionFlipFromRight, animations: {
@@ -50,7 +50,7 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             self.imageView.image = UIImage(named: "roll")
-        self.contentView.isHidden = true
+            self.contentView.isHidden = true
         }
     
     
