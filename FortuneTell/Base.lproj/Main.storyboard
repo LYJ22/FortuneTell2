@@ -297,15 +297,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="오늘의 운세" image="icon-today" id="yk4-2P-GEE"/>
-<<<<<<< HEAD
-=======
                     <connections>
                         <outlet property="backImage" destination="dy3-vh-yQf" id="47a-87-8A0"/>
                         <outlet property="labelContent" destination="Jht-f6-JwQ" id="CUn-fA-FTN"/>
                         <outlet property="labelSubTitle" destination="zLF-xX-goK" id="rTk-Ml-7Jy"/>
                         <outlet property="labelTitle" destination="HGT-FN-tGy" id="CQm-qJ-yA2"/>
                     </connections>
->>>>>>> main
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ma-bR-o1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
