@@ -7,17 +7,36 @@
 
 import UIKit
 
+extension UIView {
+    public func fadeInWithFlip(duration: TimeInterval = 2.0, delay: TimeInterval = 0.5, completion: ((Bool) -> Void)? = nil) {
+        self.alpha = 0.0
+        self.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            UIView.transition(with: self, duration: duration, options: [.transitionCurlDown], animations: {
+                self.alpha = 1.0
+            }, completion: completion)
+        }
+    }
+}
+
 class SayingViewController: UIViewController {
     @IBOutlet weak var labelContent: UILabel!
     
     @IBOutlet weak var labelPeople: UILabel!
     
+    @IBOutlet weak var viewBack: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewBack.isHidden = true
 
         labelContent.font = UIFont(name: "NotoSerifKR-Medium", size: 22)
         labelPeople.font = UIFont(name: "NotoSerifKR-Medium", size: 18)
         loadSayingCSV()
+        viewBack.fadeInWithFlip()
+        
     }
     
     private func parseCSVAt(url: URL){
