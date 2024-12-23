@@ -15,8 +15,12 @@ class LifeViewController: UIViewController {
     var date: String?
     var time: String?
     
+    @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTitle: UITextField!
+    
+    
+    @IBOutlet weak var labelSubtitle: UILabel!
+    
     @IBOutlet weak var laterLabel: UILabel!
     @IBOutlet weak var middleLabel: UILabel!
     @IBOutlet weak var earlyLabel: UILabel!
@@ -37,8 +41,10 @@ class LifeViewController: UIViewController {
         if let time = time {
             print("넘어온 값 time: \(time)")
         }
+        
         titleLabel.font = UIFont(name: "NotoSerifKR-SemiBold", size: 28)
-        self.subTitle.text = "\(name!)님의 평생운세입니다."
+        labelSubtitle.font = UIFont(name: "NotoSerifKR-Medium", size: 22)
+        labelSubtitle.text = "\(name!)님의 평생운세입니다."
         // 탭바 아이템의 이미지 색상 변경 방지
         if let tabBarItems = tabBarController?.tabBar.items {
             for item in tabBarItems {
@@ -47,8 +53,17 @@ class LifeViewController: UIViewController {
         }
     
         loadFortuneFromCSV()
+        
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+        animationView.isHidden = true
+        animationView.fadeInWithFlip()
+            
+        }
+    
     
     func calculateFortuneIndex(from dateString: String) -> Int? {
             let dateFormatter = DateFormatter()

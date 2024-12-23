@@ -11,7 +11,8 @@ extension UIView {
     public func fadeIn(duration: TimeInterval = 1.5, delay: TimeInterval = 1.0, completion: ((Bool) -> Void)? = nil) {
         self.alpha = 0.0
         self.isHidden = false
-        UIView.animate(withDuration: duration, delay: delay, options: .transitionFlipFromRight, animations: {
+        UIView.animate(withDuration: duration, delay: delay, options: .transitionFlipFromBottom
+, animations: {
             self.alpha = 1.0
         }, completion: completion)
     }

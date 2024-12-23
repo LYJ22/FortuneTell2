@@ -328,16 +328,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="님의 평생운세입니다." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0b1-zx-G46">
-                                <rect key="frame" x="135" y="169" width="242" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님의 평생운세입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6D-Qz-4Re">
+                                <rect key="frame" x="16" y="167" width="361" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="7Py-yA-eIU"/>
+                                    <constraint firstAttribute="height" constant="34" id="ZEw-1D-aQM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvE-gl-qsl">
-                                <rect key="frame" x="0.0" y="211" width="393" height="558"/>
+                                <rect key="frame" x="0.0" y="209" width="393" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZQ-2w-YsE">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="228.66666666666666"/>
@@ -435,23 +436,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MvE-gl-qsl" firstAttribute="bottom" secondItem="GMT-uy-OMa" secondAttribute="bottom" id="0CQ-rO-pHh"/>
-                            <constraint firstItem="0b1-zx-G46" firstAttribute="top" secondItem="GMT-uy-OMa" secondAttribute="top" constant="66" id="226-Bh-7He"/>
+                            <constraint firstItem="C6D-Qz-4Re" firstAttribute="top" secondItem="GMT-uy-OMa" secondAttribute="top" constant="64" id="39e-xA-5K6"/>
                             <constraint firstItem="MvE-gl-qsl" firstAttribute="trailing" secondItem="GMT-uy-OMa" secondAttribute="trailing" id="7qn-Q2-n3d"/>
-                            <constraint firstItem="0b1-zx-G46" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" constant="16" id="BfC-MW-Res"/>
-                            <constraint firstItem="0b1-zx-G46" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" constant="135" id="FWQ-9s-JQT"/>
+                            <constraint firstItem="GMT-uy-OMa" firstAttribute="trailing" secondItem="C6D-Qz-4Re" secondAttribute="trailing" constant="16" id="HmD-Wv-Dak"/>
                             <constraint firstItem="MvE-gl-qsl" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" id="LrL-J0-crj"/>
-                            <constraint firstItem="GMT-uy-OMa" firstAttribute="trailing" secondItem="0b1-zx-G46" secondAttribute="trailing" constant="36" id="Mpk-E7-fHl"/>
-                            <constraint firstItem="GMT-uy-OMa" firstAttribute="trailing" secondItem="0b1-zx-G46" secondAttribute="trailing" constant="16" id="R7f-tg-IPW"/>
-                            <constraint firstItem="MvE-gl-qsl" firstAttribute="top" secondItem="0b1-zx-G46" secondAttribute="bottom" constant="8" symbolic="YES" id="dKr-Cu-Tdj"/>
+                            <constraint firstItem="MvE-gl-qsl" firstAttribute="top" secondItem="C6D-Qz-4Re" secondAttribute="bottom" constant="8" symbolic="YES" id="V8E-IV-Buz"/>
+                            <constraint firstItem="C6D-Qz-4Re" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" constant="16" id="Yv1-QH-tTU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="평생운세" image="icon-whole" id="aMC-rv-obg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="animationView" destination="TZQ-2w-YsE" id="mUo-rB-d9s"/>
                         <outlet property="earlyLabel" destination="1uU-sr-pEx" id="UuO-ya-3kU"/>
+                        <outlet property="labelSubtitle" destination="C6D-Qz-4Re" id="HwB-NL-NTd"/>
                         <outlet property="laterLabel" destination="2bZ-WA-M9U" id="7oV-y2-gni"/>
                         <outlet property="middleLabel" destination="Kt4-JA-Iy1" id="BVC-5T-Lv8"/>
-                        <outlet property="subTitle" destination="0b1-zx-G46" id="wHQ-Hh-BB6"/>
                         <outlet property="titleLabel" destination="r7l-DY-ILC" id="jyN-EV-SJM"/>
                     </connections>
                 </viewController>
@@ -592,7 +592,7 @@
                                 <rect key="frame" x="76" y="436" width="240" height="289"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjJ-CD-g6D">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjJ-CD-g6D">
                                         <rect key="frame" x="3" y="0.0" width="234" height="289"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -716,6 +716,7 @@
                     <connections>
                         <outlet property="labelContent" destination="Ksc-Yq-o2O" id="Ng6-CY-wwx"/>
                         <outlet property="labelPeople" destination="xqA-by-njm" id="igb-Qg-17a"/>
+                        <outlet property="viewBack" destination="Gbp-rm-Ocm" id="eYp-dO-i8F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJd-09-BD5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
