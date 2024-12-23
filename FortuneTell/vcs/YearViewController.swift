@@ -52,6 +52,22 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return month[row]
     }
     
+
+    
+    
+   func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+          let label = UILabel()
+          label.text = month[row]
+          label.textAlignment = .center
+          
+       label.font = UIFont(name: "NotoSerifKR-SemiBold", size: 20)
+          return label
+   }
+   
+    
+    
+
+
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             self.imageView.image = UIImage(named: "roll")
@@ -90,12 +106,12 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         labelContent.font = UIFont(name: "NotoSerifKR-Light", size: 17)
         
-        for family in UIFont.familyNames {
-            print("Font family: \(family)")
-            for font in UIFont.fontNames(forFamilyName: family) {
-                print("Font name: \(font)")
-            }
-        }
+//        for family in UIFont.familyNames {
+//            print("Font family: \(family)")
+//            for font in UIFont.fontNames(forFamilyName: family) {
+//                print("Font name: \(font)")
+//            }
+//        }
         if let tabBarItems = tabBarController?.tabBar.items {
             for item in tabBarItems {
                 item.image = item.image?.withRenderingMode(.alwaysOriginal)
