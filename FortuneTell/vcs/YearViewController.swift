@@ -20,6 +20,7 @@ extension UIView {
 
 
 class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    var fortuneList: [FortuneModel] = []
     var name: String?
     var gender: String?
     var dateType: String?
@@ -63,6 +64,21 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let name = name {
+            print("넘어온 값 name: \(name)")
+        }
+        if let gender = gender {
+            print("넘어온 값 gender: \(gender)")
+        }
+        if let dateType = dateType {
+            print("넘어온 값 dateType: \(dateType)")
+        }
+        if let date = date {
+            print("넘어온 값 date: \(date)")
+        }
+        if let time = time {
+            print("넘어온 값 time: \(time)")
+        }
         
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -88,22 +104,8 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 item.image = item.image?.withRenderingMode(.alwaysOriginal)
             }
         }
+        loadFortuneFromCSV()
         
-        if let name = name {
-            print("넘어온 값 name: \(name)")
-        }
-        if let gender = gender {
-            print("넘어온 값 gender: \(gender)")
-        }
-        if let dateType = dateType {
-            print("넘어온 값 dateType: \(dateType)")
-        }
-        if let date = date {
-            print("넘어온 값 date: \(date)")
-        }
-        if let time = time {
-            print("넘어온 값 time: \(time)")
-        }
     }
     
 
@@ -111,8 +113,16 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func selectMonth(_ sender: UIButton) {
         
         let selectedRow = pickerView.selectedRow(inComponent: 0)
-            let selectedMonth = month[selectedRow]
-            labelTitle.text = "\(name!)님의 \(selectedMonth) 신년운세입니다."
+        let selectedMonth = month[selectedRow]
+        
+        labelTitle.text = "\(name!)님의 \(selectedMonth) 신년운세입니다."
+        
+        if let fortune = fortuneList.first {
+            let monthIndex = month.firstIndex(of: selectedMonth) ?? 0
+            labelContent.text = fortune.months[monthIndex]
+        } else {
+            labelContent.text = "해당 월에 대한 운세 데이터가 없습니다."
+        }
         
         //labelContent.isHidden = true
         contentView.isHidden = true
@@ -126,12 +136,43 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                                   }, completion: nil)
             }
         //labelContent.fadeIn()
-        labelContent.text = "sfsdfs"
         contentView.fadeIn()
         
 
-
     }
     
+    private func parseCSVAt(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            if let dataArr = dataEncoded?.components(separatedBy: "\n")
+                .map({$0.components(separatedBy: ",")}) {
+                print("Parsed data: \(dataArr)")
+                self.fortuneList = dataArr.compactMap({
+                    FortuneModel(value: $0) })
+                let fortune = self.fortuneList.randomElement()
+                if let fortune = fortune {
+                    labelContent.text = "\(fortune.months[0])"
+                }
+            }
+        } catch {
+            print("Error reading CSV file")
+        }
+    }
+    
+    private func loadFortuneFromCSV() {
+        print("loading...")
+        let path = Bundle.main.path(forResource: "month", ofType:"csv")!
+        parseCSVAt(url: URL(fileURLWithPath: path))
+    }
+    
+    
+    struct FortuneModel: Codable {
+        var months: [String]
+        init?(value: [String]) {
+            guard value.count == 12 else { return nil }
+            self.months = value
+        }
+    }
 
 }
