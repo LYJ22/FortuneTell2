@@ -100,6 +100,15 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         print(selectedTime!)
     }
     
+    // 글자 크기 설정 (attributedTitleForRow 사용)
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel()
+        label.text = time[row]
+        label.textAlignment = .center
+        label.font = UIFont(name: "NotoSerifKR-SemiBold", size: 20)
+        return label
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let tabBarController = segue.destination as? UITabBarController {
