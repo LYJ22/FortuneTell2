@@ -9,20 +9,43 @@ import UIKit
 
 class LifeViewController: UIViewController {
     var fortuneList: [FortuneModel] = []
-
+    var name: String?
+    var gender: String?
+    var dateType: String?
+    var date: String?
+    var time: String?
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitle: UITextField!
     @IBOutlet weak var laterLabel: UILabel!
     @IBOutlet weak var middleLabel: UILabel!
     @IBOutlet weak var earlyLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let name = name {
+            print("넘어온 값 name: \(name)")
+        }
+        if let gender = gender {
+            print("넘어온 값 gender: \(gender)")
+        }
+        if let dateType = dateType {
+            print("넘어온 값 dateType: \(dateType)")
+        }
+        if let date = date {
+            print("넘어온 값 date: \(date)")
+        }
+        if let time = time {
+            print("넘어온 값 time: \(time)")
+        }
+        titleLabel.font = UIFont(name: "NotoSerifKR-SemiBold", size: 28)
+        self.subTitle.text = "\(name!)님의 평생운세입니다."
         // 탭바 아이템의 이미지 색상 변경 방지
         if let tabBarItems = tabBarController?.tabBar.items {
             for item in tabBarItems {
                 item.image = item.image?.withRenderingMode(.alwaysOriginal)
             }
         }
-        
+    
         loadFortuneFromCSV()
     
     }
@@ -36,7 +59,9 @@ class LifeViewController: UIViewController {
                 self.fortuneList = dataArr.compactMap({ FortuneModel(value: $0) })
                 
                 let fortune = self.fortuneList.randomElement()
-                
+                earlyLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
+                               middleLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
+                               laterLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
                 if let fortune = fortune {
                     earlyLabel.text = fortune.earlyLife
                     middleLabel.text = fortune.middleLife

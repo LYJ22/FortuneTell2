@@ -18,6 +18,7 @@ class TodayViewController: UIViewController {
     var date: String?
     var time: String?
 
+    var fortuneList: [String] = []
 
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var labelSubTitle: UILabel!
@@ -64,7 +65,7 @@ class TodayViewController: UIViewController {
         if let time = time {
             print("넘어온 값 time: \(time)")
         }
-        
+        loadFortuneFromCSV()
         
         if let tabBarItems = tabBarController?.tabBar.items {
             for item in tabBarItems {
@@ -85,7 +86,29 @@ class TodayViewController: UIViewController {
 
     }
     
-
+    private func parseCSVAt(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            if let dataArr = dataEncoded?.components(separatedBy: "\n").map({String($0)}) {
+                print("Parsed data: \(dataArr)")
+                //self.fortuneList = dataArr.compactMap({ FortuneModel(value: $0) })
+                
+                //let fortune = self.fortuneList.randomElement()
+                
+                //if let fortune = fortune {
+                //    earlyLabel.text = fortune.earlyLife
+                //}
+                
+            }
+        } catch {
+            print("Error reading CSV file")
+        }
+    }
    
-
+    private func loadFortuneFromCSV() {
+        print("loading...")
+        let path = Bundle.main.path(forResource: "today", ofType: "csv")!
+        parseCSVAt(url: URL(fileURLWithPath: path))
+    }
 }

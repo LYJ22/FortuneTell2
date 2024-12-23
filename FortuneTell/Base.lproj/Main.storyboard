@@ -213,7 +213,12 @@
                         </view>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonFont" destination="tbg-KL-6Xl" id="vPs-da-BZo"/>
                         <outlet property="datePicker" destination="NQl-5g-QKA" id="9JV-rq-Lsn"/>
+                        <outlet property="labelDate" destination="Hta-Gs-RGC" id="hVG-1L-E7t"/>
+                        <outlet property="labelMW" destination="5nL-nr-66I" id="KIV-jG-WjY"/>
+                        <outlet property="labelName" destination="x2n-xN-iHl" id="Fq5-0L-mdn"/>
+                        <outlet property="labelTime" destination="0af-ky-XWC" id="vIc-ox-c3T"/>
                         <outlet property="picker" destination="dbn-g7-Dhi" id="r4o-kz-n0n"/>
                         <outlet property="segmentDateType" destination="WiI-o7-9us" id="lx1-3C-HJq"/>
                         <outlet property="segmentMW" destination="WcH-a8-Gh2" id="IVB-ab-WtO"/>
@@ -317,14 +322,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="평생운세" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7l-DY-ILC">
-                                <rect key="frame" x="16" y="121" width="97" height="34"/>
+                                <rect key="frame" x="16" y="121" width="132" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="님의 평생운세입니다." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0b1-zx-G46">
-                                <rect key="frame" x="135" y="169" width="222" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="님의 평생운세입니다." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0b1-zx-G46">
+                                <rect key="frame" x="135" y="169" width="242" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="7Py-yA-eIU"/>
                                 </constraints>
@@ -418,6 +423,13 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="AlX-un-ypJ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6gg-a2-mQO"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXr-d6-nBW">
+                                <rect key="frame" x="71" y="182" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GMT-uy-OMa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -425,9 +437,11 @@
                             <constraint firstItem="MvE-gl-qsl" firstAttribute="bottom" secondItem="GMT-uy-OMa" secondAttribute="bottom" id="0CQ-rO-pHh"/>
                             <constraint firstItem="0b1-zx-G46" firstAttribute="top" secondItem="GMT-uy-OMa" secondAttribute="top" constant="66" id="226-Bh-7He"/>
                             <constraint firstItem="MvE-gl-qsl" firstAttribute="trailing" secondItem="GMT-uy-OMa" secondAttribute="trailing" id="7qn-Q2-n3d"/>
+                            <constraint firstItem="0b1-zx-G46" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" constant="16" id="BfC-MW-Res"/>
                             <constraint firstItem="0b1-zx-G46" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" constant="135" id="FWQ-9s-JQT"/>
                             <constraint firstItem="MvE-gl-qsl" firstAttribute="leading" secondItem="GMT-uy-OMa" secondAttribute="leading" id="LrL-J0-crj"/>
                             <constraint firstItem="GMT-uy-OMa" firstAttribute="trailing" secondItem="0b1-zx-G46" secondAttribute="trailing" constant="36" id="Mpk-E7-fHl"/>
+                            <constraint firstItem="GMT-uy-OMa" firstAttribute="trailing" secondItem="0b1-zx-G46" secondAttribute="trailing" constant="16" id="R7f-tg-IPW"/>
                             <constraint firstItem="MvE-gl-qsl" firstAttribute="top" secondItem="0b1-zx-G46" secondAttribute="bottom" constant="8" symbolic="YES" id="dKr-Cu-Tdj"/>
                         </constraints>
                     </view>
@@ -437,6 +451,8 @@
                         <outlet property="earlyLabel" destination="1uU-sr-pEx" id="UuO-ya-3kU"/>
                         <outlet property="laterLabel" destination="2bZ-WA-M9U" id="7oV-y2-gni"/>
                         <outlet property="middleLabel" destination="Kt4-JA-Iy1" id="BVC-5T-Lv8"/>
+                        <outlet property="subTitle" destination="0b1-zx-G46" id="wHQ-Hh-BB6"/>
+                        <outlet property="titleLabel" destination="r7l-DY-ILC" id="jyN-EV-SJM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6e-eB-s1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

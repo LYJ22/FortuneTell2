@@ -24,10 +24,24 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var segmentDateType: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var picker: UIPickerView!
+    //font변경
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelMW: UILabel!
+    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var labelTime: UILabel!
+    
+    @IBOutlet weak var buttonFont: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //font
+        labelName.font = UIFont(name: "NotoSerifKR-SemiBold", size: 17)
+        labelMW.font = UIFont(name: "NotoSerifKR-SemiBold", size: 17)
+        labelDate.font = UIFont(name: "NotoSerifKR-SemiBold", size: 17)
+        labelTime.font = UIFont(name: "NotoSerifKR-SemiBold", size: 17)
+        buttonFont.titleLabel?.font = UIFont(name: "NotoSerifKR-SemiBold", size: 17)
+        
         // 네비게이션 바 배경색, 크기 설정
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -56,18 +70,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             return
         }
         
-//        if let name = textViewName.text, !name.isEmpty {
-//            let gen = gender[segmentMW.selectedSegmentIndex]
-//            let dType = dateType[segmentDateType.selectedSegmentIndex]
-//            
-//            /* 운세 확인 페이지로 데이터 전달 (name, gen, dType, date, time)*/
-//            
-//        }else{
-//            print("오류")
-//            let alert = UIAlertController(title: "입력 오류", message: "값을 입력해 주세요.", preferredStyle: .alert)
-//                        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//        }
+
     }
     
     // date picker 날짜 선택
@@ -98,6 +101,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let tabBarController = segue.destination as? UITabBarController {
             if let viewControllers = tabBarController.viewControllers {
                 for viewController in viewControllers {
@@ -114,6 +118,13 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         secondChildVC.dateType = dateType[segmentDateType.selectedSegmentIndex]
                         secondChildVC.date = date
                         secondChildVC.time = selectedTime!
+                    }
+                    else if let thirdChildVC = viewController as? LifeViewController {
+                        thirdChildVC.name = textViewName.text!
+                        thirdChildVC.gender = gender[segmentMW.selectedSegmentIndex]
+                        thirdChildVC.dateType = dateType[segmentDateType.selectedSegmentIndex]
+                        thirdChildVC.date = date
+                        thirdChildVC.time = selectedTime!
                     }
                 }
             }
