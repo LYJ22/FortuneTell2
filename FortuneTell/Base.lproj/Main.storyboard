@@ -670,18 +670,57 @@
         <!--오늘의 명언-->
         <scene sceneID="LlL-2l-neS">
             <objects>
-                <viewController id="nN1-aN-pAS" sceneMemberID="viewController">
+                <viewController id="nN1-aN-pAS" customClass="SayingViewController" customModule="FortuneTell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NOj-an-PeM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="wfr-5f-8Fl">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbp-rm-Ocm">
+                                <rect key="frame" x="32" y="223" width="329" height="463"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksc-Yq-o2O">
+                                        <rect key="frame" x="8" y="126" width="313" height="210"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqA-by-njm">
+                                        <rect key="frame" x="8" y="424" width="308" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0WL-W9-wBw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wfr-5f-8Fl" firstAttribute="top" secondItem="0WL-W9-wBw" secondAttribute="top" id="589-vq-Ntc"/>
+                            <constraint firstItem="0WL-W9-wBw" firstAttribute="trailing" secondItem="Gbp-rm-Ocm" secondAttribute="trailing" constant="32" id="SfB-rp-r6C"/>
+                            <constraint firstItem="Gbp-rm-Ocm" firstAttribute="leading" secondItem="0WL-W9-wBw" secondAttribute="leading" constant="32" id="fYO-Kt-Esr"/>
+                            <constraint firstItem="wfr-5f-8Fl" firstAttribute="leading" secondItem="0WL-W9-wBw" secondAttribute="leading" id="ofK-rH-p4x"/>
+                            <constraint firstItem="0WL-W9-wBw" firstAttribute="bottom" secondItem="wfr-5f-8Fl" secondAttribute="bottom" id="q14-gE-xJ6"/>
+                            <constraint firstItem="wfr-5f-8Fl" firstAttribute="trailing" secondItem="0WL-W9-wBw" secondAttribute="trailing" id="v6K-N9-v5u"/>
+                            <constraint firstItem="0WL-W9-wBw" firstAttribute="bottom" secondItem="Gbp-rm-Ocm" secondAttribute="bottom" constant="132" id="v70-cg-qKA"/>
+                            <constraint firstItem="Gbp-rm-Ocm" firstAttribute="top" secondItem="0WL-W9-wBw" secondAttribute="top" constant="120" id="vBc-bF-6ud"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="오늘의 명언" id="58f-Od-NGm"/>
+                    <connections>
+                        <outlet property="labelContent" destination="Ksc-Yq-o2O" id="Ng6-CY-wwx"/>
+                        <outlet property="labelPeople" destination="xqA-by-njm" id="igb-Qg-17a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJd-09-BD5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3339" y="686"/>
+            <point key="canvasLocation" x="3338.1679389312976" y="685.91549295774655"/>
         </scene>
         <!--Item-->
         <scene sceneID="Odr-Of-9xN">
@@ -738,7 +777,7 @@
                                 <constraint firstItem="4cC-gq-LOx" firstAttribute="centerY" secondItem="fhK-nH-fKE" secondAttribute="centerY" id="XFa-dq-oCa"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Ujm-TZ-Xw5">
+                        <barButtonItem key="rightBarButtonItem" title="명언" id="Ujm-TZ-Xw5">
                             <connections>
                                 <segue destination="nN1-aN-pAS" kind="show" id="3Yh-cS-CaR"/>
                             </connections>
@@ -801,11 +840,15 @@
     </scenes>
     <resources>
         <image name="Group 6" width="131" height="38"/>
+        <image name="background" width="800" height="800"/>
         <image name="backimg" width="504" height="928"/>
         <image name="icon-today" width="25" height="25"/>
         <image name="icon-whole" width="25" height="25"/>
         <image name="icon-year" width="25" height="25"/>
         <image name="title" width="349" height="71"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

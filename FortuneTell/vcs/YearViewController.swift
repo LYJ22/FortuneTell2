@@ -52,6 +52,15 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return month[row]
     }
     
+    
+   func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+          let label = UILabel()
+          label.text = month[row]
+          label.textAlignment = .center
+          
+       label.font = UIFont(name: "NotoSerifKR-SemiBold", size: 20)
+          return label
+      }
    
     
     
