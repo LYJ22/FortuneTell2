@@ -668,6 +668,22 @@
             </objects>
             <point key="canvasLocation" x="2021" y="901"/>
         </scene>
+        <!--오늘의 명언-->
+        <scene sceneID="LlL-2l-neS">
+            <objects>
+                <viewController id="nN1-aN-pAS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NOj-an-PeM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0WL-W9-wBw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="오늘의 명언" id="58f-Od-NGm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJd-09-BD5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3339" y="686"/>
+        </scene>
         <!--Item-->
         <scene sceneID="Odr-Of-9xN">
             <objects>
@@ -723,6 +739,11 @@
                                 <constraint firstItem="4cC-gq-LOx" firstAttribute="centerY" secondItem="fhK-nH-fKE" secondAttribute="centerY" id="XFa-dq-oCa"/>
                             </constraints>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Ujm-TZ-Xw5">
+                            <connections>
+                                <segue destination="nN1-aN-pAS" kind="show" id="3Yh-cS-CaR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qZ9-fc-bji">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
