@@ -50,6 +50,25 @@ class LifeViewController: UIViewController {
     
     }
     
+    func calculateFortuneIndex(from dateString: String) -> Int? {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"  // 날짜 형식 설정 (예: 2024-12-23)
+            
+            guard let date = dateFormatter.date(from: dateString) else {
+                print("Invalid date format")
+                return nil
+            }
+            
+            let calendar = Calendar.current
+            let year = calendar.component(.year, from: date)
+            let month = calendar.component(.month, from: date)
+            let day = calendar.component(.day, from: date)
+            
+            // 년, 월, 일을 합산한 값으로 운세 인덱스를 계산
+            let total = year + month + day
+            return total % fortuneList.count  // fortuneList.count을 넘지 않도록 나머지를 사용
+        }
+    
     private func parseCSVAt(url: URL) {
         do {
             let data = try Data(contentsOf: url)
@@ -58,16 +77,24 @@ class LifeViewController: UIViewController {
                 print("Parsed data: \(dataArr)")
                 self.fortuneList = dataArr.compactMap({ FortuneModel(value: $0) })
                 
-                let fortune = self.fortuneList.randomElement()
-                earlyLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
-                               middleLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
-                               laterLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
-                if let fortune = fortune {
-                    earlyLabel.text = fortune.earlyLife
-                    middleLabel.text = fortune.middleLife
-                    laterLabel.text = fortune.laterLife
+                guard let dateString = date else {
+                    print("생년월일이 설정되지 않았습니다.")
+                    return
                 }
                 
+                if let fortuneIndex = calculateFortuneIndex(from: dateString) {
+                    if fortuneIndex >= 0 && fortuneIndex < fortuneList.count {
+                        let fortune = fortuneList[fortuneIndex]
+                        earlyLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
+                        middleLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
+                        laterLabel.font = UIFont(name: "NotoSerifKR-Light", size: 17)
+                        earlyLabel.text = fortune.earlyLife
+                        middleLabel.text = fortune.middleLife
+                        laterLabel.text = fortune.laterLife
+                    } else {
+                        print("해당 인덱스의 운세 데이터가 없습니다")
+                    }
+                }
             }
         } catch {
             print("Error reading CSV file")
