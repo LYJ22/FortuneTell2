@@ -18,8 +18,6 @@ class TodayViewController: UIViewController {
     var date: String?
     var time: String?
 
-    var fortuneList: [String] = []
-
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var labelSubTitle: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
@@ -83,6 +81,29 @@ class TodayViewController: UIViewController {
         loadFortuneFromCSV()
     }
     
+    func calculateFortuneIndex(from dateString: String, listSize fortuneList: Int) -> Int? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"  // 날짜 형식 설정 (예: 2024-12-23)
+             
+        guard let date = dateFormatter.date(from: dateString) else {
+            print("Invalid date format")
+            return nil
+        }
+             
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+             
+        // 년, 월, 일을 합산한 값으로 운세 인덱스를 계산
+        let total = year + month + day
+        if fortuneList == 0{
+            return total % 20
+        }else{
+            return total % fortuneList
+        }
+    }
+    
     private func parseCSVAt(url: URL) {
         do {
             let data = try Data(contentsOf: url)
@@ -90,10 +111,14 @@ class TodayViewController: UIViewController {
             if var dataArr = dataEncoded?.components(separatedBy: "\n").map({$0}) {
                 
                 dataArr.removeLast()
-                let fortune = dataArr.randomElement()
+                //let fortune = dataArr.randomElement()
                 
-                if let fortune = fortune {
+                if let fortuneIndex = calculateFortuneIndex(from: date!, listSize: dataArr.count){
+                    let fortune = dataArr[fortuneIndex]
+                    
                     labelContent.text = fortune
+                }else{
+                    print("Fail to get fortune from index")
                 }
                 
             }
