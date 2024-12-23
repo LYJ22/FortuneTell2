@@ -93,12 +93,12 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         labelContent.font = UIFont(name: "NotoSerifKR-Light", size: 17)
         
-//        for family in UIFont.familyNames {
-//            print("Font family: \(family)")
-//            for font in UIFont.fontNames(forFamilyName: family) {
-//                print("Font name: \(font)")
-//            }
-//        }
+        for family in UIFont.familyNames {
+            print("Font family: \(family)")
+            for font in UIFont.fontNames(forFamilyName: family) {
+                print("Font name: \(font)")
+            }
+        }
         if let tabBarItems = tabBarController?.tabBar.items {
             for item in tabBarItems {
                 item.image = item.image?.withRenderingMode(.alwaysOriginal)
@@ -136,7 +136,6 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                                   }, completion: nil)
             }
         //labelContent.fadeIn()
-//        labelContent.text = "asdf"
         contentView.fadeIn()
         
 
