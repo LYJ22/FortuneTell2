@@ -52,8 +52,6 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return month[row]
     }
     
-    
-
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             self.imageView.image = UIImage(named: "roll")
@@ -83,7 +81,6 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         pickerView.delegate = self
         pickerView.dataSource = self
         self.imageView.image = UIImage(imageLiteralResourceName: "roll")
-        //labelContent.isHidden = true
         contentView.isHidden = true
         
         
@@ -117,28 +114,54 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         labelTitle.text = "\(name!)님의 \(selectedMonth) 신년운세입니다."
         
-        if let fortune = fortuneList.first {
-            let monthIndex = month.firstIndex(of: selectedMonth) ?? 0
-            labelContent.text = fortune.months[monthIndex]
-        } else {
-            labelContent.text = "해당 월에 대한 운세 데이터가 없습니다."
+        guard let dateString = date else {
+            labelContent.text = "생년월일이 설정되지 않았습니다."
+            return
         }
         
-        //labelContent.isHidden = true
-        contentView.isHidden = true
-        self.imageView.image = UIImage(named: "roll")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                UIView.transition(with: self.imageView,
-                                  duration: 1.5,
-                                  options: .transitionCrossDissolve,
-                                  animations: {
-                                      self.imageView.image = UIImage(named: "back")
-                                  }, completion: nil)
+        if let fortuneIndex = calculateFortuneIndex(from: dateString) {
+            if fortuneIndex >= 0 && fortuneIndex < fortuneList.count {
+                let fortune = fortuneList[fortuneIndex]
+                labelContent.text = "\(selectedMonth): \(fortune.months[selectedRow])"
+            } else {
+                labelContent.text = "해당 월에 대한 운세 데이터가 없습니다."
             }
-        //labelContent.fadeIn()
-        contentView.fadeIn()
+        } else {
+            labelContent.text = "유효한 생년월일이 아닙니다."
+        }
         
-
+        contentView.isHidden = false
+        self.imageView.image = UIImage(named: "roll")
+        
+    
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            UIView.transition(with: self.imageView,
+                                         duration: 1.5,
+                                         options: .transitionCrossDissolve,
+                                         animations: {
+                                             self.imageView.image = UIImage(named: "back")
+                                         }, completion: nil)
+                   }
+        contentView.fadeIn()
+    }
+    
+    func calculateFortuneIndex(from dateString: String) -> Int? {
+        let dateFormatter = DateFormatter()
+             dateFormatter.dateFormat = "yyyy-MM-dd"  // 날짜 형식 설정 (예: 2024-12-23)
+             
+             guard let date = dateFormatter.date(from: dateString) else {
+                 print("Invalid date format")
+                 return nil
+             }
+             
+             let calendar = Calendar.current
+             let year = calendar.component(.year, from: date)
+             let month = calendar.component(.month, from: date)
+             let day = calendar.component(.day, from: date)
+             
+             // 년, 월, 일을 합산한 값으로 운세 인덱스를 계산
+             let total = year + month + day
+             return total % fortuneList.count
     }
     
     private func parseCSVAt(url: URL) {
@@ -150,11 +173,8 @@ class YearViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 print("Parsed data: \(dataArr)")
                 self.fortuneList = dataArr.compactMap({
                     FortuneModel(value: $0) })
-                let fortune = self.fortuneList.randomElement()
-                if let fortune = fortune {
-                    labelContent.text = "\(fortune.months[0])"
                 }
-            }
+            
         } catch {
             print("Error reading CSV file")
         }
